@@ -1,0 +1,31 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace HotelReservation.Migrations
+{
+    public partial class op : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "SoftwareUser",
+                columns: table => new
+                {
+                    SoftwareUserId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    SoftwareUserName = table.Column<string>(nullable: true),
+                    SoftwareUserPost = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SoftwareUser", x => x.SoftwareUserId);
+                });
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "SoftwareUser");
+        }
+    }
+}

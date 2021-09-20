@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace HotelReservation.Models
+{
+    public class Room
+    {
+        [Key()]
+        public int RoomId { get; set; }
+        public int RoomNo { get; set; }
+
+        public int RoomCapacity { get; set; }
+
+        public string RoomPhoneNo { get; set; }
+        public decimal RoomRent { get; set; }
+        public string Floor { get; set; }
+        public int RoomTypeId { get; set; }
+        public RoomType RoomType { get; set; }
+    }
+}

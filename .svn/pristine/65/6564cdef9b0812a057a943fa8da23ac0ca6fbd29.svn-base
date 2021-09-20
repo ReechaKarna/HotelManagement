@@ -1,0 +1,8 @@
+﻿@model HotelReservation.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "SignIn";
+
+}
+
+<h2>SignIn</h2>
+

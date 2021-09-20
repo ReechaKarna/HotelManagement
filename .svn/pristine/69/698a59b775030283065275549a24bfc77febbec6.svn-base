@@ -1,0 +1,49 @@
+﻿@model HotelReservation.Models.Guest
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Guest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GuestName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCardNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdCardNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestIdCardTypeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GuestIdCardTypeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestIdCardType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GuestIdCardType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.GuestId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,82 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace HotelReservation.Migrations
+{
+    public partial class b : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Guest",
+                columns: table => new
+                {
+                    GuestId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    GuestName = table.Column<string>(nullable: true),
+                    Nationality = table.Column<string>(nullable: true),
+                    IdCardNumber = table.Column<int>(nullable: false),
+                    GuestIdCardTypeId = table.Column<int>(nullable: false),
+                    GuestIdCardType = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Guest", x => x.GuestId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoomType",
+                columns: table => new
+                {
+                    RoomTypeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoomTypeName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoomType", x => x.RoomTypeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Room",
+                columns: table => new
+                {
+                    RoomId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoomNo = table.Column<int>(nullable: false),
+                    RoomCapacity = table.Column<int>(nullable: false),
+                    RoomPhoneNo = table.Column<string>(nullable: true),
+                    RoomRent = table.Column<decimal>(nullable: false),
+                    Floor = table.Column<string>(nullable: true),
+                    RoomTypeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Room", x => x.RoomId);
+                    table.ForeignKey(
+                        name: "FK_Room_RoomType_RoomTypeId",
+                        column: x => x.RoomTypeId,
+                        principalTable: "RoomType",
+                        principalColumn: "RoomTypeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Room_RoomTypeId",
+                table: "Room",
+                column: "RoomTypeId");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Guest");
+
+            migrationBuilder.DropTable(
+                name: "Room");
+
+            migrationBuilder.DropTable(
+                name: "RoomType");
+        }
+    }
+}

@@ -1,0 +1,64 @@
+﻿@model HotelReservation.Models.HotelLocation
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
+
+
+<div id="bg">
+    <div class="modal-header" style="border:1px solid black; background-color: #777">
+        <h2>Edit  Hotel</h2>
+    </div>
+
+    @using (Html.BeginForm("Edit", "HotelLocations", FormMethod.Post, new { enctype = "multipart/form-data", @class = "wizard-big wizard clearfix" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.HotelLocationId)
+
+        <div class="modal-body" style="border:1px solid black; margin-top:2px">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label asp-for="CityNames" class="control-label" style="color:black; padding-top:5px"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="CityNames" class="form-control" style="height:45px;border:1px solid black" />
+                </div>
+            </div>
+            <div class="row" style="padding-top:5px">
+                <div class="col-sm-6">
+                    <label asp-for="ProvienceNo" class="control-label" style="color:black; padding-top:5px"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="ProvienceNo" class="form-control" style="height:45px;border:1px solid black" />
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer" style="border:1px solid black; background-color: #777; margin-top:2px">
+            <input type="submit" value="Create" class="btn btn-outline-dark btn-sm" />
+
+            <button type="button" class="btn btn-outline-dark btn-sm" onclick='window.location.href="@Url.Action("Index", "HotelLocations")" '>Close</button>
+
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

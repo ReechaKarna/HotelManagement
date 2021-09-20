@@ -1,0 +1,12 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=ACER-PC\\SQLEXPRESS;Database=RestaurantBooking;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

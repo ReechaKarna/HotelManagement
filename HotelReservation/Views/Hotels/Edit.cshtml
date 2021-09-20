@@ -1,0 +1,128 @@
+﻿@model HotelReservation.Models.Hotel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+
+
+
+    string base64 = string.Empty;
+        if (Model.Image != null)
+        {
+            base64 = Convert.ToBase64String(Model.Image);
+        }
+
+        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+    
+}
+
+
+<div id="bg">
+    <div class="modal-header" style="border:1px solid black; background-color: #777">
+        <h2>Edit HOTEL</h2>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data", @class = "wizard-big wizard clearfix" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(x => x.HotelId)
+        <div class="modal-body" style="border:1px solid black; margin-top:2px">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label asp-for="HotelName" class="control-label" style="color:black; padding-top:5px"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="HotelName" class="form-control" style="height:45px;border:1px solid black" />
+                </div>
+            </div>
+            <div class="row" style="padding-top:5px">
+                <div class="col-sm-6">
+                    <label asp-for="HotelTypeId" class="control-label" style="color:black; padding-top:5px"></label>
+                </div>
+                <div class="col-sm-6">
+
+                    @Html.DropDownList("HotelTypeId", null, "HOTEL TYPE", htmlAttributes: new { @class = "form-control", style = "height:45px; border-color:black", @required = "required" })
+
+                </div>
+            </div>
+            <div class="row" style="padding-top:5px">
+                <div class="col-sm-6">
+
+                    <label asp-for="HotelLocationId" class="control-label" style="color:black ; padding-top:5px"></label>
+                </div>
+                <div class="col-sm-6">
+                    @Html.DropDownList("HotelLocationId", null, "HOTEL LOCATION", htmlAttributes: new { @class = "form-control", style = "height:45px; border-color:black", @required = "required" })
+
+                </div>
+            </div>
+
+
+            <div class="row" style="padding-top:5px">
+
+                <div class="col-sm-6">
+                    <label asp-for="Image" class="control-label" style="color:black; padding-top:8px"></label>
+                </div>
+                <div class="col-sm-6" style="padding-top:10px">
+
+
+
+
+                    @if (!string.IsNullOrEmpty(base64))
+                    {
+                        <img src="@imgSrc" style="height:60px;width:60px" />
+                        @Html.HiddenFor(m => m.Image)
+                    }
+
+                    <div class="col-sm-6" style="padding-top:10px">
+                        @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @onchange = "ChangeImage(this)", @id = "fileupload" })
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer" style="border:1px solid black; background-color: #777; margin-top:2px">
+            <input type="submit" value="Save" class="btn btn-outline-dark btn-sm" />
+
+            <button type="button" class="btn btn-outline-dark btn-sm" onclick='window.location.href="@Url.Action("Index", "Hotels")" '>Close</button>
+
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+
+
+
+    <script>
+        function ChangeImage(input) {
+            var j = jQuery.noConflict();
+            if (input.files && input.files[0]) {
+                var ImageDir = new FileReader();
+                ImageDir.onload = function (e) {
+                    j('#imageThumbnail').attr('src', e.target.result);
+                }
+                ImageDir.readAsDataURL(input.files[0]);
+            }
+    </script>
+}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

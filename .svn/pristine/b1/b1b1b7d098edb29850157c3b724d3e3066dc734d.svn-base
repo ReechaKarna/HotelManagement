@@ -1,0 +1,118 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace HotelReservation.Migrations
+{
+    public partial class r : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<int>(
+                name: "HotelLocationId",
+                table: "Hotel",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.AddColumn<string>(
+                name: "HotelName",
+                table: "Hotel",
+                nullable: true);
+
+            migrationBuilder.AddColumn<int>(
+                name: "HotelTypeId",
+                table: "Hotel",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.CreateTable(
+                name: "HotelLocation",
+                columns: table => new
+                {
+                    HotelLocationId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CityNames = table.Column<string>(nullable: true),
+                    ProvienceNo = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HotelLocation", x => x.HotelLocationId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HotelType",
+                columns: table => new
+                {
+                    HotelTypeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    HotelTypeName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HotelType", x => x.HotelTypeId);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Hotel_HotelLocationId",
+                table: "Hotel",
+                column: "HotelLocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Hotel_HotelTypeId",
+                table: "Hotel",
+                column: "HotelTypeId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Hotel_HotelLocation_HotelLocationId",
+                table: "Hotel",
+                column: "HotelLocationId",
+                principalTable: "HotelLocation",
+                principalColumn: "HotelLocationId",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Hotel_HotelType_HotelTypeId",
+                table: "Hotel",
+                column: "HotelTypeId",
+                principalTable: "HotelType",
+                principalColumn: "HotelTypeId",
+                onDelete: ReferentialAction.Cascade);
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Hotel_HotelLocation_HotelLocationId",
+                table: "Hotel");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Hotel_HotelType_HotelTypeId",
+                table: "Hotel");
+
+            migrationBuilder.DropTable(
+                name: "HotelLocation");
+
+            migrationBuilder.DropTable(
+                name: "HotelType");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Hotel_HotelLocationId",
+                table: "Hotel");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Hotel_HotelTypeId",
+                table: "Hotel");
+
+            migrationBuilder.DropColumn(
+                name: "HotelLocationId",
+                table: "Hotel");
+
+            migrationBuilder.DropColumn(
+                name: "HotelName",
+                table: "Hotel");
+
+            migrationBuilder.DropColumn(
+                name: "HotelTypeId",
+                table: "Hotel");
+        }
+    }
+}

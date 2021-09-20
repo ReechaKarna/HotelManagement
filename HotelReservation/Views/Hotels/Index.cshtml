@@ -1,0 +1,147 @@
+﻿@model PagedList.IPagedList<HotelReservation.Models.Hotel>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+
+
+
+
+
+}
+
+<div id="bg">
+    <div class="modal-header" style="background-color: #777">
+        <h1>HOTEL</h1>
+
+    </div>
+    <p style="padding-top:10px">
+        <button value="" class="btn-primary" onclick='window.location.href="/Hotels/Create/"'><i class="fa fa-plus">&nbsp; ADD NEW RECORD</i></button>
+
+
+    </p>
+    <table class="table  table-condensed  table-hover  table-responsive" style="width:100%; border:2px solid black">
+        <thead>
+            <tr>
+                <th style="color:black; border:2px solid black; height:4px">
+                    Hotel Name
+                </th>
+                <th style="color:black ; border:2px solid black">
+                    Hotel Type
+                </th>
+                <th style="color:black; border:2px solid black">
+                    Hotel Location
+                </th>
+                <th style="color:black; border:2px solid black">
+                    Hotel's Image'
+                </th>
+                <th style="border:2px solid black"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr style="text-align:center; height:5px">
+                <td style="color:black ; border:2px solid black">
+                    @Html.DisplayFor(modelItem => item.HotelName)
+                </td>
+                <td style="color:black  ; border:2px solid black">
+                    @Html.DisplayFor(modelItem => item.HotelType.HotelTypeName)
+                </td>
+                <td style="color:black  ; border:2px solid black">
+
+
+
+                    @Html.DisplayFor(modelItem => item.HotelLocation.CityNames)
+                </td>
+
+
+
+                <td style="color:black  ; border:2px solid black">
+
+                    @{string base64 = string.Empty;
+                        if (item.Image != null)
+                        {
+                            base64 = Convert.ToBase64String(item.Image);
+                        }
+
+                        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                    }
+                    @if (!string.IsNullOrEmpty(base64))
+                    {
+                        <img src="@imgSrc" style="height:80px;width:80px" />
+                    }
+                </td>
+
+
+
+
+
+
+
+                <td style="border:2px solid black">
+                    <button value="@item.HotelId" onclick='window.location.href="/Hotels/Edit/"+@item.HotelId'><i class="fa fa-edit"></i></button>
+
+                    <button value="@item.HotelId" onclick='window.location.href="/Hotels/Delete/"+@item.HotelId'><i class="fa fa-trash-o"></i></button>
+
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row">
+        <div class=" col-md-3 col-sm-3">
+
+
+
+
+            <div class="pull-left">
+                <div class="Pagination">
+
+                    page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-9 Pagination">
+
+
+
+
+        </div>
+    </div>
+
+</div>
+<div class="modal inmodal fade" id="modelDelete" role="dialog">
+
+</div>
+<style>
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            background-color: lightblue;
+        }
+
+            ul.pagination li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: cornflowerblue;
+            }
+</style>

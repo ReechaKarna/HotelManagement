@@ -1,0 +1,55 @@
+﻿@model HotelReservation.Models.Room
+
+@{
+    ViewData["Title"] = "Details";
+   Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomCapacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomCapacity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomPhoneNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomPhoneNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomRent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomRent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomType.RoomTypeId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RoomId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

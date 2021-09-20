@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/easy-responsive-tabs.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+    <title>@ViewData["Title"] - HotelReservation</title>
+
+
+</head>
+<body>
+    <div class="banner">
+        <div class="header-bottom">
+            <div class="header" style="background-color:black">
+                <div class="container">
+                    <div class="w3_agile_logo">
+                        <h1><a href="index.html"><span>Booking Hotels</span>in Nepal</a></h1>
+                    </div>
+                    <div class="header-nav" style="background-color:black">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header navbar-left">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                                <nav class="link-effect-12">
+                                    <ul class="nav navbar-nav w3_agile_nav">
+
+
+                                        <li><a href="@Url.Action("SignIn", "Account")"><span>sign In</span></a></li>
+
+                                        <li><a href="@Url.Action("Register", "Account")"><span>Register</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+
+
+            <div id="typer">
+
+                <img src="~/images/bannerrr-1.jpg" />
+
+            </div>
+            <div class="top-banner-right">
+                <ul>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="about">
+        <div class="container">
+            <div class="w3ls-heading">
+                <h2>visit Nepal 2020</h2>
+
+            </div>
+            <br />
+            <h2 style="text-align:center">Recommended Destinations</h2>
+            <div class="w3-about-grids">
+                <div class="col-md-6 visible-md-inline">
+
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 w3-about-left">
+                        <div class="about-img-grids">
+                            <div class="col-md-7 about-img">
+                                <img src="~/images/four.jpg" alt=" " />
+
+
+                            </div>
+                            <div class="col-md-5 about-img about-img1">
+
+                                <img src="images/6.jpg" alt=" " />
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="about-img-grids">
+                            <div class="col-md-5 about-img about-img1">
+                                <img src="~/images/seven.jpg" alt=" " />
+
+                            </div>
+                            <div class="col-md-7 about-img">
+                                <img src="~/images/five.jpg" alt=" " />
+
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 w3-about-right">
+                        <div class="about-img-grids">
+                            <div class="col-md-7 about-img">
+                                <img src="~/images/four.jpg" alt=" " />
+
+
+                            </div>
+                            <div class="col-md-5 about-img about-img1">
+
+                                <img src="images/6.jpg" alt=" " />
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="about-img-grids">
+                            <div class="col-md-5 about-img about-img1">
+                                <img src="~/images/seven.jpg" alt=" " />
+
+                            </div>
+                            <div class="col-md-7 about-img">
+                                <img src="~/images/five.jpg" alt=" " />
+
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popular-section-wthree">
+        <div class="container">
+            <div style="text-align:center">
+                <h3>Featured Hotels in Nepal</h3>
+            </div>
+            <div class="popular-agileinfo">
+                <div class="col-md-3 about-img about-img">
+
+                    <h4>Hotel Yak and Yeti</h4>
+                    <img src="images/6.jpg" alt=" " />
+                </div>
+                <div class="col-md-3 about-img about-img">
+
+                    <h4>Hotel soltee Crown Plaza</h4>
+
+                    <img src="~/images/solti.jpg" alt=" " />
+
+
+                </div>
+                <div class="col-md-3 about-img about-img">
+                    <h4>Hotel Ru Ru Resunga</h4>
+                    <img src="images/6.jpg" alt=" " />
+                </div>
+                <div class="col-md-3 about-img about-img">
+                    <h4>Hotel Annapurna</h4>
+                    <img src="images/6.jpg" alt=" " />
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="why-choose-agile">
+        <div class="container">
+            <div class="w3ls-heading">
+                <h3>Why Choose Us</h3>
+            </div>
+            <div class="why-choose-agile-grids-top">
+                <div class="col-md-4 agileits-w3layouts-grid">
+                    <div class="wthree_agile_us">
+                        <div class="col-xs-9 agile-why-text">
+                            <h4>Maecenas</h4>
+                            <p>Lorem ipsum magna, vehicula ut scelerisque ornare porta ete.</p>
+                        </div>
+                        <div class="col-xs-3 agile-why-text">
+                            <div class="wthree_features_grid hvr-rectangle-out">
+                                <i class="fa fa-glass" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="wthree_agile_us">
+                        <div class="col-xs-9 agile-why-text">
+                            <h4>Lorem ipsum</h4>
+                            <p>Lorem ipsum magna, vehicula ut scelerisque ornare porta ete.</p>
+                        </div>
+                        <div class="col-xs-3 agile-why-text">
+                            <div class="wthree_features_grid hvr-rectangle-out">
+                                <i class="fa fa-gift" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="wthree_agile_us">
+                        <div class="col-xs-9 agile-why-text">
+                            <h4>Duis ipsum</h4>
+                            <p>Lorem ipsum magna, vehicula ut scelerisque ornare porta ete.</p>
+                        </div>
+                        <div class="col-xs-3 agile-why-text">
+                            <div class="wthree_features_grid hvr-rectangle-out">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="col-md-4 agileits-w3layouts-grid img">
+                    <img src="~/images/3.jpg" alt=" " class="img-responsive" />
+
+
+                </div>
+                <div class="col-md-4 agileits-w3layouts-grid">
+                    <div class="wthree_agile_us">
+                        <div class="col-xs-3 agile-why-text agile-icon-left">
+                            <div class="wthree_features_grid hvr-rectangle-out">
+                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 agile-why-text two">
+                            <h4>Donec egestas</h4>
+                            <p>Lorem ipsum magna, vehicula ut scelerisque ornare porta ete.</p>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="wthree_agile_us">
+                        <div class="col-xs-3 agile-why-text agile-icon-left">
+                            <div class="wthree_features_grid hvr-rectangle-out">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 agile-why-text two">
+                            <h4>Suspendisse</h4>
+                            <p>Lorem ipsum magna, vehicula ut scelerisque ornare porta ete.</p>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="wthree_agile_us">
+                        <div class="col-xs-3 agile-why-text agile-icon-left">
+                            <div class="wthree_features_grid hvr-rectangle-out">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 agile-why-text two">
+                            <h4>Nunc vitae</h4>
+                            <p>Lorem ipsum magna, vehicula ut scelerisque ornare porta ete.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - HotelReservation</p>
+        </footer>
+    </div>
+
+
+
+    <script src="~/js/move-top.js"></script>
+    <script src="~/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <script src="~/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+
+    <script src="~/js/jquery.typer.js"></script>
+    <script>
+        var win = $(window),
+            foo = $('#typer');
+
+        foo.typer(['Luxury Hotels', 'Hotels & Resorts', 'Luxury Resorts']);
+
+        win.resize(function () {
+            var fontSize = Math.max(Math.min(win.width() / (1 * 10), parseFloat(Number.POSITIVE_INFINITY)), parseFloat(Number.NEGATIVE_INFINITY));
+
+            foo.css({
+                fontSize: fontSize * .8 + 'px'
+            });
+        }).resize();
+    </script>
+    <script src="~/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true,   // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

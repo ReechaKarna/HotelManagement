@@ -1,0 +1,40 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace HotelReservation.Migrations
+{
+    public partial class era : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Role");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Role",
+                columns: table => new
+                {
+                    RoleId = table.Column<string>(nullable: false),
+                    RoleId1 = table.Column<string>(nullable: true),
+                    RoleName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Role", x => x.RoleId);
+                    table.ForeignKey(
+                        name: "FK_Role_Role_RoleId1",
+                        column: x => x.RoleId1,
+                        principalTable: "Role",
+                        principalColumn: "RoleId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Role_RoleId1",
+                table: "Role",
+                column: "RoleId1");
+        }
+    }
+}
